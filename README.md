@@ -7,8 +7,6 @@ Open source software:
 - [BusyBox](https://busybox.net/)
 - [U-Boot](https://u-boot.readthedocs.io/en/latest/)
 - [Linux](https://www.kernel.org/)
-- [Libmpeg2](https://libmpeg2.sourceforge.io/)
-- [OpenH264](https://www.openh264.org/)
 - [Zlib](http://www.zlib.net)
 - [Dropbear](https://matt.ucc.asn.au/dropbear/dropbear.html)
 

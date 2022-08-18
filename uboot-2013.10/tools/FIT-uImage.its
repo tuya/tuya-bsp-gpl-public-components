@@ -1,0 +1,80 @@
+/*
+ * FIT uImage 
+ *
+ * Copyright (C) 2018 Anyka(Guangzhou) Microelectronics Technology Co., Ltd.
+ *
+ * Author: zhang_zhipeng <zhang_zhipeng@anyka.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+
+/dts-v1/;
+
+/ {
+	 description = "U-Boot uImage sourc file for FIT";
+	 #address-cells = <1>;
+	 images{
+	    kernel@cloud39e{
+	        description = "Unify(TODO) Linux kernel for project cloud39e";
+	        data = /incbin/("./fit-image/zImage");
+	        type = "kernel";
+	        arch = "arm";
+	        os = "linux";
+	        compression = "none";
+	        load = <0x80008000>;
+	        entry = <0x80008000>;
+	    };
+	    
+	    fdt@cloud39e{
+	        description = "Flattened Device Tree blob for cloud39e";
+	        data = /incbin/("./fit-image/ak3916ev300.dtb");
+	        type = "flat_dt";
+	        arch = "arm";
+	        compression = "none"; 
+	    };
+	    /*
+	    ramdisk@cloud39e{
+	        description = "Ramdisk for cloud39e";
+	        data = /incbin/("/etc/initramfs.gz");
+	        type = "ramdisk";
+	        arch = "arm";
+	        os = "linux";
+	        compression = "gzip"; 
+	    };
+	    */
+	  };
+	  
+	  configurations{
+	      default = "conf@cloud39e";
+	      
+	      conf@cloud3916ev300{
+	          description = "Boot Linux kernel with FDT blob";
+	          kernel = "kernel@cloud39e";
+	          fdt = "fdt@@cloud39e";
+	          //ramdisk = "ramdisk@cloud39e";
+	      };
+	      
+	      conf@cloud3918ev300{
+	          description = "Boot Linux kernel with FDT blob";
+	          kernel = "kernel@cloud39e";
+	          fdt = "fdt@@cloud39e";
+	          //ramdisk = "ramdisk@cloud39e";
+	      };
+	      
+	      conf@cloud39e{
+	          description = "Boot Linux kernel with FDT blob";
+	          kernel = "kernel@cloud39e";
+	          fdt = "fdt@@cloud39e";
+	          //ramdisk = "ramdisk@cloud39e";
+	      };
+	  };
+};

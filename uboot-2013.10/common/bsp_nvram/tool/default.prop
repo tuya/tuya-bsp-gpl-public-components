@@ -1,0 +1,10 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+ro.tuya.test.default=default
+ro.tuya.build.platform=linux
+ro.product.locale=zh-CN
+
+# enable adb network connection.
+service.adb.tcp.port=5555
+

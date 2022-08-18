@@ -1,0 +1,21 @@
+menuconfig TUYA_PACKAGE_ZLIB
+	bool "zlib"
+	select TUYA_PACKAGE_HAS_ZLIB
+	help
+	  Standard (de)compression library. Used by things like
+	  gzip and libpng.
+
+	  http://www.zlib.net
+
+if TUYA_PACKAGE_ZLIB
+
+config TUYA_PACKAGE_ZLIB_VERSION
+	string "zlib version to use?"
+	default "zlib-1.2.11"
+	help
+	  Select which version to use.
+
+config TUYA_PACKAGE_HAS_ZLIB
+	bool
+
+endif

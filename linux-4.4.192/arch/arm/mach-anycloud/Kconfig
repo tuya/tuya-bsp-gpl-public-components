@@ -1,0 +1,25 @@
+# linux/arch/arm/mach-anycloud/Kconfig
+#
+# Copyright 2018 Anyka Microelectronics
+#
+# Licensed under GPLv2
+
+# Machine support
+
+config MACH_AK37D
+	bool "anycloudv500 ak37d support"
+	depends on ARCH_AK
+	help
+	  Support for ak37d
+
+config MACH_AK39EV330
+	bool "anycloudv500 ak39ev330 support"
+	depends on ARCH_AK
+	help
+	  Support for ak39ev330
+
+config MACH_AK37E
+	bool "anycloudv500 ak37e support"
+	depends on ARCH_AK
+	help
+		Support for ak37e

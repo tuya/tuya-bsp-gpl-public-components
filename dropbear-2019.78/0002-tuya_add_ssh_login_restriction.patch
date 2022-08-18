@@ -1,0 +1,12 @@
+diff --git a/svr-auth.c b/svr-auth.c
+index 7575f90..57d5118 100644
+--- a/svr-auth.c
++++ b/svr-auth.c
+@@ -434,6 +434,7 @@ void send_msg_userauth_failure(int partial, int incrfail) {
+ 		char * userstr;
+ 		/* XXX - send disconnect ? */
+ 		TRACE(("Max auth tries reached, exiting"))
++		system(". /bin/ssh_login_lock.sh");
+ 
+ 		if (ses.authstate.pw_name == NULL) {
+ 			userstr = "is invalid";

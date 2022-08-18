@@ -1,0 +1,22 @@
+#
+# For a description of the syntax of this configuration file,
+# see Documentation/kbuild/kconfig-language.txt.
+#
+mainmenu "Linux/$ARCH $KERNELVERSION Kernel Configuration"
+
+config SRCARCH
+	string
+	option env="SRCARCH"
+
+source "arch/$SRCARCH/Kconfig"
+
+menu "Boot product"
+choice
+    prompt "Product select"
+default TUYA_CONFIG_SC015WL2
+
+config TUYA_CONFIG_SC015WL2
+       bool "sc015wl2"
+endchoice
+
+endmenu     # Boot product

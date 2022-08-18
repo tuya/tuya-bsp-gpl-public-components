@@ -1,0 +1,157 @@
+/*
+ * AK37E SoC
+ *
+ * Copyright (C) 2020 Anyka(Guangzhou) Microelectronics Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/*
+* NOTE:
+* This is the common configuration about pinctrl with those customers no need to care about.
+* Like the mmc/eth, customers will less to modify them.
+* IF your pins are strongly relate on the specifically board.
+* Please move them to the board related file.
+*/
+
+#include <dt-bindings/pinctrl/ak_37e_pinctrl.h>
+
+&gpio {
+    /*
+    * "anyka,function": func index, please refer to dt-bindings/pinctrl/ak_37e_pinctrl.h
+    * "anyka,pull": configuration of the pins
+    * bit[7:0]: pull up/down configuration
+    *     bit[0]: pull up or pull down selection, 1 means select pull down, 0 means select pull up
+    *     bit[4]: pull up or pull down enable, 1 means enable pull up&down function, 0 means disable fuction
+    * !!! Notice that not all pin support pull up and pull down. Please refer to the programer's guide.
+    * bit[15:8]: driver strength configuration.
+    *     bit[9:8] drive strength.
+    * bit[23:16]: input enable configuration
+    *     bit[16]: 1 means enable input, 0 means disable input.
+    * bit[31:24]: pin slew rate configuration
+    *     bit[24]: 1 means enable slew rate, 0 means disable slew rate.
+    * !!! Notice OTHER bits which not mentioned please set to 0.
+    */
+
+    uart0_pins: uart0_pins {
+        anyka,pins = <XGPIO_022 XGPIO_023>;
+        anyka,function = <XGPIO_022_FUNC_UART0_RXD XGPIO_023_FUNC_UART0_TXD>;
+        anyka,pull = <0x00010000>;
+    };
+
+    uart1_pins: uart1_pins {
+        anyka,pins = <XGPIO_024 XGPIO_025>;
+        anyka,function = <XGPIO_024_FUNC_UART1_RXD XGPIO_025_FUNC_UART1_TXD>;
+        anyka,pull = <0x00000010>;
+    };
+
+    ethernet_rmii0_pins: ethernet_rmii0_pins {
+        anyka,pins = <XGPIO_000
+                        XGPIO_001
+                        XGPIO_002
+                        XGPIO_003
+                        XGPIO_004
+                        XGPIO_005
+                        XGPIO_006
+                        XGPIO_007
+                        XGPIO_008
+                        XGPIO_009>;
+        anyka,function = <XGPIO_000_FUNC_RMII0_MDIO
+                            XGPIO_001_FUNC_RMII0_MDC
+                            XGPIO_002_FUNC_RMII0_RXER
+                            XGPIO_003_FUNC_RMII0_RXDV
+                            XGPIO_004_FUNC_RMII0_RXD0
+                            XGPIO_005_FUNC_RMII0_RXD1
+                            XGPIO_006_FUNC_OPCLK0
+                            XGPIO_007_FUNC_RMII0_TXD0
+                            XGPIO_008_FUNC_RMII0_TXD1
+                            XGPIO_009_FUNC_RMII0_TXEN
+                            >;
+        anyka,pull = <0x00010010 0x00010011 0x00010011 0x00010011 0x00010011 0x00010011 0x00010300 0x00010011 0x00010011 0x00010011>;
+    };
+
+    ethernet_rmii1_pins: ethernet_rmii1_pins {
+        anyka,pins = <XGPIO_058
+                        XGPIO_059
+                        XGPIO_060
+                        XGPIO_061
+                        XGPIO_062
+                        XGPIO_063
+                        XGPIO_064
+                        XGPIO_065
+                        XGPIO_066
+                        XGPIO_067>;
+        anyka,function = <XGPIO_058_FUNC_RMII1_MDIO
+                            XGPIO_059_FUNC_RMII1_MDC
+                            XGPIO_060_FUNC_RMII1_RXER
+                            XGPIO_061_FUNC_RMII1_RXDV
+                            XGPIO_062_FUNC_RMII1_RXD0
+                            XGPIO_063_FUNC_RMII1_RXD1
+                            XGPIO_064_FUNC_OPCLK1
+                            XGPIO_065_FUNC_RMII1_TXD0
+                            XGPIO_066_FUNC_RMII1_TXD1
+                            XGPIO_067_FUNC_RMII1_TXEN
+                            >;
+		anyka,pull = <0x01010300 0x01010300 0x01010300 0x01010300 0x01010300 0x01010300 0x01010310 0x01010300 0x01010300 0x01010300>;
+    };
+
+    ethernet_rmii0_rst_pins: ethernet_rmii0_rst_pins {
+        anyka,pins = <XGPIO_085>;
+        anyka,function = <XGPIO_085_FUNC_GPIO85>;
+        anyka,pull = <0x00010010>;
+    };
+
+    ethernet_rmii1_rst_pins: ethernet_rmii1_rst_pins {
+        anyka,pins = <XGPIO_086>;
+        anyka,function = <XGPIO_086_FUNC_GPIO86>;
+        anyka,pull = <0x00000010>;
+    };
+
+    spiflash_pins: spiflash_pins {
+        anyka,pins = <XGPIO_015
+                        XGPIO_014
+                        XGPIO_013
+                        XGPIO_012
+                        XGPIO_011
+                        XGPIO_010
+                        >;
+        anyka,function = <XGPIO_015_FUNC_SPI0_DOUT
+                            XGPIO_014_FUNC_SPI0_WP
+                            XGPIO_013_FUNC_SPI0_SCLK
+                            XGPIO_012_FUNC_SPI0_DIN
+                            XGPIO_011_FUNC_SPI0_HOLD
+                            XGPIO_010_FUNC_SPI0_CS0
+                    >;
+        anyka,pull = <0x00010000>;
+    };
+
+    spi_nand_flash_cs_pins: spi_nand_flash_cs_pins {
+        anyka,pins = <XGPIO_082>;
+        anyka,function = <XGPIO_082_FUNC_SPI0_CS1>;
+        anyka,pull = <0x00000010>;
+    };
+    
+    spi2_pins: spi2_pins {
+        anyka,pins = <XGPIO_024
+                        XGPIO_025
+                        XGPIO_026
+                        XGPIO_027
+                        XGPIO_028
+                        >;
+        anyka,function = <XGPIO_024_FUNC_SPI2_CS0
+                            XGPIO_025_FUNC_SPI2_SCLK
+                            XGPIO_026_FUNC_SPI2_DIN
+                            XGPIO_027_FUNC_SPI2_DOUT
+                            XGPIO_028_FUNC_SPI2_CS1
+                    >;
+        anyka,pull = <0x00010000>;
+    };
+};
