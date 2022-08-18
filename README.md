@@ -1,21 +1,19 @@
-Introduction
-This repository is used to open the GPL-compliant open source components used by the tuya bsp team
+## Overview
+This repository contains the GPL-compliant open source board support package (BSP) components.
 
-Documentation
-https://busybox.net/
-https://u-boot.readthedocs.io/en/latest/
-https://www.kernel.org/
-http://libmpeg2.sourceforge.net/
-https://www.openh264.org/
-http://www.zlib.net
-https://matt.ucc.asn.au/dropbear/dropbear.html
+## Reference
 
-Support
-You can get support from Tuya with the following methods:
+Open source software:
+- [BusyBox](https://busybox.net/)
+- [U-Boot](https://u-boot.readthedocs.io/en/latest/)
+- [Linux](https://www.kernel.org/)
+- [Libmpeg2](https://libmpeg2.sourceforge.io/)
+- [OpenH264](https://www.openh264.org/)
+- [Zlib](http://www.zlib.net)
+- [Dropbear](https://matt.ucc.asn.au/dropbear/dropbear.html)
 
-Tuya Smart Help Center
+## Technical support
+If you have any questions about the BSP, contact the product manager or request technical support.
 
-Technical Support
-
-License
-This TUYA BSP GPL PUBLIC COMPONENTS is licensed under the GPL2.0 License.
+## License
+Tuya GPL-compliant open source BSP components are licensed under GPL 2.0.
