@@ -3,9 +3,13 @@
 
 ## 仓库的使用介绍
 参考对应开源软件的网址：
-- BusyBox: https://busybox.net/
-- U-Boot: https://u-boot.readthedocs.io/en/latest/
-- Linux: https://www.kernel.org/
+- [BusyBox](https://busybox.net/)
+- [U-Boot](https://u-boot.readthedocs.io/en/latest/)
+- [Linux](https://www.kernel.org/)
+- [Libmpeg2](https://libmpeg2.sourceforge.io/)
+- [OpenH264](https://www.openh264.org/)
+- [Zlib](http://www.zlib.net)
+- [Dropbear](https://matt.ucc.asn.au/dropbear/dropbear.html)
 
 ## 技术支持
 找对应的产品经理或者技术支持。
