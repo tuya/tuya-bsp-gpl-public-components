@@ -1,0 +1,42 @@
+~/Desktop/froyo-x86/external# . ../../build/envsetup.sh
+~/Desktop/froyo-x86/external# mm
+
+(out/target/product/eeepc/obj/EXECUTABLES/iwpriv_intermediates/LINKED/iwpriv)
+
+
+
+
+root@realtek-desktop:~/Desktop/froyo-x86/external/wireless_tools# . ../../build/envsetup.sh 
+root@realtek-desktop:~/Desktop/froyo-x86/external/wireless_tools# mm
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=2.2
+TARGET_PRODUCT=eeepc
+TARGET_BUILD_VARIANT=eng
+TARGET_SIMULATOR=
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=x86
+HOST_ARCH=x86
+HOST_OS=linux
+HOST_BUILD_TYPE=release
+BUILD_ID=MASTER
+============================================
+make: Entering directory `/root/Desktop/froyo-x86'
+target  C: iwpriv <= external/wireless_tools/iwpriv.c
+In file included from external/wireless_tools/iwlib.h:25,
+                 from external/wireless_tools/iwlib-private.h:19,
+                 from external/wireless_tools/iwpriv.c:14:
+bionic/libc/include/stdlib.h:84: warning: declaration of 'abs' shadows a built-in function
+bionic/libc/include/stdlib.h:88: warning: declaration of 'labs' shadows a built-in function
+bionic/libc/include/stdlib.h:92: warning: declaration of 'llabs' shadows a built-in function
+target Executable: iwpriv (out/target/product/eeepc/obj/EXECUTABLES/iwpriv_intermediates/LINKED/iwpriv)
+target Non-prelinked: iwpriv (out/target/product/eeepc/symbols/system/bin/iwpriv)
+target Unstripped: iwpriv (out/target/product/eeepc/obj/EXECUTABLES/iwpriv_intermediates/iwpriv)
+Install: out/target/product/eeepc/system/xbin/iwpriv
+make: Leaving directory `/root/Desktop/froyo-x86'
+
+
+
+
+
