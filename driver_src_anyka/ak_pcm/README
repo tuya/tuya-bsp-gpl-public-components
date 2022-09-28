@@ -1,0 +1,35 @@
+ReleaseNote
+2020/09/10：新版音频驱动合入主线发测
+
+.
+├── chip //芯片级差异文件
+│   └── ak39e
+│       ├── codec_adc_dac.c
+│       └── codec_adc_dac.h
+├── common //公共层驱动文件
+│   ├── soundcard.c
+│   └── soundcard.h
+├── devices //设备层驱动
+│   ├── capture.c
+│   ├── capture.h
+│   ├── loopback.c
+│   ├── loopback.h
+│   ├── playback.c
+│   └── playback.h
+├── include //全局头文件
+│   ├── ak_pcm_common.h
+│   ├── ak_pcm_debug.h
+│   ├── ak_pcm_defs.h
+│   └── ak_pcm.h
+├── Makefile
+├── os //系统类型相关
+│   ├── linux
+│   │   ├── ak_pcm_dev.c
+│   │   ├── ak_pcm_sys.c
+│   │   ├── ak_pcm_sys.h
+│   │   ├── os_common.c
+│   │   ├── os_common.h
+│   │   ├── pcm_port.c
+│   │   └── pcm_port.h
+│   └── rtt
+└── README
