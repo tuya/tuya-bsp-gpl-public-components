@@ -1,0 +1,43 @@
+#
+# Makefile for kernel tuya whole drivers.
+#
+PRJ_PATH    	:= $(shell pwd)
+KSRC 			:= $(PRJ_PATH)/../../linux-4.4.192/
+ARCH 			:= arm
+CROSS_COMPILE   := arm-anykav500-linux-uclibcgnueabi-
+MODULE_NAME 	:= ty_driver_main
+
+EXTRA_CFLAGS += -I$(PWD)/include/kernel -I$(PWD)/include/usr
+EXTRA_LDFLAGS += --strip-debug
+EXTRA_CFLAGS += -Werror
+EXTRA_CFLAGS += -Wno-date-time
+
+CONFIG_TUYA_CONFIG_SC015WL2 = y
+CONFIG_MOTOR_MODULE = y
+CONFIG_SUBG_MODULE = n
+
+obj-m := $(MODULE_NAME).o
+
+$(MODULE_NAME)-y += src/common/ty_gpio.o
+
+$(MODULE_NAME)-$(CONFIG_MOTOR_MODULE) += src/motor/ty_motor.o
+$(MODULE_NAME)-$(CONFIG_SUBG_MODULE) += src/subg/ty_subg.o src/subg/radio/radio.o src/subg/radio/cmt_spi3.o src/subg/radio/cmt2300a.o src/subg/radio/cmt2300a_hal.o
+
+$(MODULE_NAME)-$(CONFIG_TUYA_CONFIG_SC015WL2) += src/config/ty_sc015_wl2.o
+
+$(MODULE_NAME)-objs += src/ty_driver.o
+
+.PHONY: all clean
+
+all: modules
+
+modules:
+	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(PRJ_PATH) modules
+
+clean:
+	@find \( -name '*.[oas]' -o -name '*.ko' -o -name '.*.cmd' \
+	-o -name '*.ko.*' -o -name '*.symvers' \
+	-o -name '.*.d' -o -name '.*.tmp' -o -name '*.mod.c' \
+	-o -name '*.symtypes' -o -name 'modules.order' \
+	-o -name modules.builtin -o -name '.tmp_*.o.*' \
+	-o -name '*.gcno' \) -type f -print | xargs rm -f
